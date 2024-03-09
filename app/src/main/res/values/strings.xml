@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">eContacts</string>
+    <string name="district_name">Narmadapuram</string>
+    <string name="register">Register</string>
+    <string name="user_email">Enter Email ID Here</string>
+    <string name="todo">TODO</string>
+    <string name="enter_user_name_here">Enter User Name here</string>
+    <string name="enter_password_login">Enter Password</string>
+    <string name="enter_e_mail_address_login">Enter e-Mail Address</string>
+    <string name="login_login">Login</string>
 </resources>

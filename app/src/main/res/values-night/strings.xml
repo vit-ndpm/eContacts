@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="register">Register</string>
+    <string name="todo">TODO</string>
+    <string name="enter_user_name_here">Enter User Name here</string>
+</resources>

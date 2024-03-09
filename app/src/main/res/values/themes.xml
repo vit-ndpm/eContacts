@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.EContacts" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary"> #097EE4 </item>
     </style>
 
     <style name="Theme.EContacts" parent="Base.Theme.EContacts" />
