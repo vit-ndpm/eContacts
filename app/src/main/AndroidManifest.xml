@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,57 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EContacts"
         tools:targetApi="31">
+        <activity
+            android:name=".Notice"
+            android:exported="false" />
+        <activity
+            android:name=".Imp_Link"
+            android:exported="false" />
+        <activity
+            android:name=".Police_Station"
+            android:exported="false" />
+        <activity
+            android:name=".Mcmc"
+            android:exported="false" />
+        <activity
+            android:name=".Vst"
+            android:exported="false" />
+        <activity
+            android:name=".Sst"
+            android:exported="false" />
+        <activity
+            android:name=".Fst"
+            android:exported="false" />
+        <activity
+            android:name=".Control_Room"
+            android:exported="false" />
+        <activity
+            android:name=".Polling_Party"
+            android:exported="false" />
+        <activity
+            android:name=".Booth"
+            android:exported="false" />
+        <activity
+            android:name=".Post"
+            android:exported="false" />
+        <activity
+            android:name=".Department"
+            android:exported="false" />
+        <activity
+            android:name=".Role"
+            android:exported="false" />
+        <activity
+            android:name=".Sector"
+            android:exported="false" />
+        <activity
+            android:name=".Nodal"
+            android:exported="false" />
+        <activity
+            android:name=".ARO_Office"
+            android:exported="false" />
+        <activity
+            android:name=".RO_Office"
+            android:exported="false" />
         <activity
             android:name=".ForgetPassword"
             android:exported="false" />
