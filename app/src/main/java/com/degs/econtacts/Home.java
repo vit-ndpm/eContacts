@@ -22,8 +22,28 @@ public class Home extends AppCompatActivity {
     TextView toolbarTextView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FirebaseUser currentFirebaseUser;
     RecyclerView mainItemRCV;
     ArrayList<HomeItemModel> homeItemModelArrayList;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (currentFirebaseUser == null) {
+            sendUserToLoginActivity();
+
+        }
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (currentFirebaseUser == null) {
+            sendUserToLoginActivity();
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +51,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 //        Setup Toolbar
-        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+         currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         lougout = findViewById(R.id.logout_img_home);
         toolbarTextView = findViewById(R.id.toolbar_txt_home);
         // toolbarLogoImageView.setImageURI(currentFirebaseUser.getPhotoUrl());

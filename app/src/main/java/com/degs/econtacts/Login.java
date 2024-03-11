@@ -34,7 +34,24 @@ public class Login extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabas;
 
     private ProgressDialog loadingBar;//Used to show the progress of the registration process
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser() != null) {
+            sendUserToHomeActivity(mAuth.getCurrentUser());
 
+        }
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (mAuth.getCurrentUser() != null) {
+            sendUserToHomeActivity(mAuth.getCurrentUser());
+
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +63,9 @@ public class Login extends AppCompatActivity {
         password_et=findViewById(R.id.password_et_login);
         login_btn=findViewById(R.id.login_btn_login);
         forget_password=findViewById(R.id.forget_password_login);
+        if (mAuth.getCurrentUser()!=null){
+            sendUserToHomeActivity(mAuth.getCurrentUser());
+        }
         forget_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +117,8 @@ public class Login extends AppCompatActivity {
     private void sendUserToRegisterActivity() {
         Intent intent = new Intent(Login.this, Register.class);
         startActivity(intent);
-    }private void sendUserToHomeActivity(FirebaseUser user) {
+    }
+    private void sendUserToHomeActivity(FirebaseUser user) {
         Intent intent = new Intent(Login.this, Home.class);
         startActivity(intent);
     }

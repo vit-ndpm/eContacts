@@ -25,8 +25,8 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.main_items_layout,parent,false);
-        ViewHolder viewHolder=new ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.main_items_layout, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
@@ -34,6 +34,23 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.item_title.setText(homeItemModelArrayList.get(position).item_title);
         holder.item_image.setImageResource(homeItemModelArrayList.get(position).item_image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                switch (homeItemModelArrayList.get(holder.getAdapterPosition()).id) {
+                    case 5:
+                        context.startActivity(new Intent(context, Role.class));
+                    case 6:
+                        context.startActivity(new Intent(context, Department.class));
+                    case 7:
+                        context.startActivity(new Intent(context, Post.class));
+
+
+                }
+            }
+        });
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -107,14 +124,14 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
         return homeItemModelArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView item_image;
         TextView item_title;
 
-    public ViewHolder(@NonNull View itemView) {
-        super(itemView);
-        item_image=itemView.findViewById(R.id.imgCategory);
-        item_title=itemView.findViewById(R.id.category_name_tv);
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            item_image = itemView.findViewById(R.id.imgCategory);
+            item_title = itemView.findViewById(R.id.category_name_tv);
+        }
     }
-}
 }

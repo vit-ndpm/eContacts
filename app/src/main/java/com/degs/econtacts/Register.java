@@ -52,7 +52,24 @@ public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;//Used for firebase authentication
     private FirebaseDatabase firebaseDatabase;
     private ProgressDialog loadingBar;//Used to show the progress of the registration process
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser() != null) {
+            sendUserToHomeActivity(mAuth.getCurrentUser());
 
+        }
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (mAuth.getCurrentUser() != null) {
+            sendUserToHomeActivity(mAuth.getCurrentUser());
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +82,9 @@ public class Register extends AppCompatActivity {
         login = findViewById(R.id.login_reg_btn);
         userImage = findViewById(R.id.user_image);
         select_img_register = findViewById(R.id.select_img_register);
+        if (mAuth.getCurrentUser()!=null){
+            sendUserToHomeActivity(mAuth.getCurrentUser());
+        }
         select_img_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -252,5 +272,8 @@ public class Register extends AppCompatActivity {
         }
         return false;
     }
-
+    private void sendUserToHomeActivity(FirebaseUser user) {
+        Intent intent = new Intent(Register.this, Home.class);
+        startActivity(intent);
+    }
 }
