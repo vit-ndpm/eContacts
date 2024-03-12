@@ -16,6 +16,9 @@
         android:theme="@style/Theme.EContacts"
         tools:targetApi="31">
         <activity
+            android:name=".Officer"
+            android:exported="false" />
+        <activity
             android:name=".Notice"
             android:exported="false" />
         <activity

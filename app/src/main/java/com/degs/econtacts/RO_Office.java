@@ -59,6 +59,9 @@ public class RO_Office extends AppCompatActivity {
                 return false;
             }
         });
+        progressDialog.setTitle("Officers");
+        progressDialog.setMessage("Loading Officers..");
+        progressDialog.show();
         fillOfficers();
 
     }

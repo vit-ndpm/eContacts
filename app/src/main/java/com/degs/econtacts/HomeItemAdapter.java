@@ -52,6 +52,9 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
                     case 7:
                         context.startActivity(new Intent(context, Post.class));
                         break;
+                        case 12:
+                        context.startActivity(new Intent(context, Sst.class));
+                        break;
 
 
                 }

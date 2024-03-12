@@ -57,8 +57,8 @@ public class RO_Office_RC_Adapter extends RecyclerView.Adapter<RO_Office_RC_Adap
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name_eng_tv = itemView.findViewById(R.id.officer_name_eng_tv);
-            name_hi_tv = itemView.findViewById(R.id.officer_name_hi_tv);
+            name_eng_tv = itemView.findViewById(R.id.team_name_eng_tv);
+            name_hi_tv = itemView.findViewById(R.id.team_name_hi_tv);
             mobile_tv = itemView.findViewById(R.id.mobile_tv);
             email_tv = itemView.findViewById(R.id.email_tv);
             call_img = itemView.findViewById(R.id.call_img);
