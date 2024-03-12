@@ -16,7 +16,7 @@
 
 
         <TextView
-            android:id="@+id/department_name_eng_tv_dept"
+            android:id="@+id/officer_name_eng_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -28,13 +28,13 @@
 
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/department_name_hi_tv_dept"
+            app:layout_constraintBottom_toTopOf="@+id/officer_name_hi_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/department_name_hi_tv_dept"
+            android:id="@+id/officer_name_hi_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -46,9 +46,9 @@
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/department_name_eng_tv_dept"
-            app:layout_constraintStart_toStartOf="@+id/department_name_eng_tv_dept"
-            app:layout_constraintTop_toBottomOf="@+id/department_name_eng_tv_dept" />
+            app:layout_constraintEnd_toEndOf="@+id/officer_name_eng_tv"
+            app:layout_constraintStart_toStartOf="@+id/officer_name_eng_tv"
+            app:layout_constraintTop_toBottomOf="@+id/officer_name_eng_tv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -1,8 +1,8 @@
 package com.degs.econtacts;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -30,6 +30,7 @@ public class Role extends AppCompatActivity {
     RecyclerView recyclerView;
     SearchView searchView_post;
     Role_RC_Adapter adapter;
+    private ProgressDialog progressDialogue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class Role extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview_role);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         roleModelArrayList = new ArrayList<>();
+        progressDialogue = new ProgressDialog(this);
+
         //Search functionality start here
         searchView_post.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -60,8 +63,12 @@ public class Role extends AppCompatActivity {
             }
         });
         // Search functionality end here
+        progressDialogue.setTitle("Loading Department");
+        progressDialogue.setMessage("Lodaing Department please Wait...");
+        progressDialogue.show();
         fillRoles();
     }
+
     public void filterList(String text) {
         ArrayList<Role_Model> filteredList = new ArrayList<>();
         for (Role_Model roleModel : roleModelArrayList) {
@@ -108,6 +115,9 @@ public class Role extends AppCompatActivity {
                 }
                 adapter = new Role_RC_Adapter(Role.this, roleModelArrayList);
                 recyclerView.setAdapter(adapter);
+                progressDialogue.setTitle("Loading Department");
+                progressDialogue.setMessage("Lodaing Department please Wait...");
+                progressDialogue.dismiss();
 
             }
 
@@ -115,7 +125,7 @@ public class Role extends AppCompatActivity {
             public void onError(ANError anError) {
                 Toast.makeText(Role.this, "Error" + anError.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("error", "Error" + anError.getLocalizedMessage());
-
+                progressDialogue.dismiss();
             }
         });
 

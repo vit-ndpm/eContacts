@@ -78,8 +78,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isValidData()){
-                    loadingBar.setTitle("Creating New Account");
-                    loadingBar.setMessage("Please wait, we are creating new Account");
+                    loadingBar.setTitle("Login");
+                    loadingBar.setMessage("Please wait,Login .....");
                     loadingBar.setCanceledOnTouchOutside(true);
                     loadingBar.show();
                     mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -94,8 +94,9 @@ public class Login extends AppCompatActivity {
 
                             } else {
                                 // If sign in fails, display a message to the user.
+
                                 Toast.makeText(Login.this, "Authentication failed."+task.getException(),
-                                        Toast.LENGTH_SHORT).show();
+                                        Toast.LENGTH_LONG).show();
                                loadingBar.dismiss();
                             }
 

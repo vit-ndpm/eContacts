@@ -46,8 +46,8 @@ public class Post_RC_Adapter extends RecyclerView.Adapter<Post_RC_Adapter.ViewHo
         TextView post_name_eng,post_name_hi;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            post_name_eng=itemView.findViewById(R.id.department_name_eng_tv_dept);
-            post_name_hi=itemView.findViewById(R.id.department_name_hi_tv_dept);
+            post_name_eng=itemView.findViewById(R.id.officer_name_eng_tv);
+            post_name_hi=itemView.findViewById(R.id.officer_name_hi_tv);
         }
     }
     public void setFilteredList(ArrayList<Post_Model> filteredList) {

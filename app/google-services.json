@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "338106680202",
+    "firebase_url": "https://econtacts-809e8-default-rtdb.firebaseio.com",
+    "project_id": "econtacts-809e8",
+    "storage_bucket": "econtacts-809e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338106680202:android:ab55829e8819e4d0363e73",
+        "android_client_info": {
+          "package_name": "com.degs.econtacts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZIqNU_XGbfTOm_Go5k6-n0ExqqjC5HaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

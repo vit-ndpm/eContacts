@@ -1,5 +1,6 @@
 package com.degs.econtacts;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -31,6 +32,7 @@ public class Post extends AppCompatActivity {
     SearchView searchView_post;
     ArrayAdapter<Post_Model> postModelArrayAdapter;
     Post_RC_Adapter adapter;
+    private ProgressDialog progressDialogue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class Post extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview_post);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         postModelArrayList = new ArrayList<>();
+        progressDialogue=new ProgressDialog(this);
         //Search functionality start here
         searchView_post.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -61,6 +64,9 @@ public class Post extends AppCompatActivity {
             }
         });
         // Search functionality end here
+        progressDialogue.setTitle("Loading Department");
+        progressDialogue.setMessage("Lodaing Department please Wait...");
+        progressDialogue.show();
         fillDepartments();
     }
     public void filterList(String text) {
@@ -111,6 +117,7 @@ public class Post extends AppCompatActivity {
                 }
                 adapter = new Post_RC_Adapter(Post.this, postModelArrayList);
                 recyclerView.setAdapter(adapter);
+                progressDialogue.dismiss();
 
             }
 
@@ -118,6 +125,8 @@ public class Post extends AppCompatActivity {
             public void onError(ANError anError) {
                 Toast.makeText(Post.this, "Error" + anError.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("error", "Error" + anError.getLocalizedMessage());
+                progressDialogue.dismiss();
+
 
             }
         });
