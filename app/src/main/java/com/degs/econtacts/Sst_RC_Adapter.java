@@ -1,6 +1,7 @@
 package com.degs.econtacts;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,10 +36,27 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
         holder.sst_name_hi_tv.setText(sstModelArrayList.get(position).name_hi);
         holder.shift_tv.setText(sstModelArrayList.get(position).shift);
         holder.assembly_tv.setText(sstModelArrayList.get(position).assembly_name_eng);
-//        if (sstModelArrayList!=null){
-//            holder.officer_name_tv.setText(sstModelArrayList.get(position).sstOfficersList.get(position).name_eng);
-//            holder.officer_mobile_tv.setText(sstModelArrayList.get(position).sstOfficersList.get(position).mobile);
-//        }
+        //Office and Police Office Detail
+        String officer_name="";
+        String officer_mobile="";
+        String police_name="";
+        String police_mobile="";
+        officer_name=sstModelArrayList.get(position).sstOfficersList.get(0).name_eng.toString();
+        officer_mobile=sstModelArrayList.get(position).sstOfficersList.get(0).mobile.toString();
+        police_name=sstModelArrayList.get(position).sstOfficersList.get(1).name_eng.toString();
+        police_mobile=sstModelArrayList.get(position).sstOfficersList.get(1).mobile.toString();
+        holder.officer_name_tv.setText(officer_name);
+        holder.officer_mobile_tv.setText(officer_mobile);
+        holder.police_name_tv.setText(police_name);
+        holder.police_mobile_tv.setText(police_mobile);
+//         officer_name="";
+//         officer_mobile="";
+//         police_name="";
+//         police_mobile="";
+
+        //Office and Police Office Detail End
+
+        Log.d("Details of Officers List","Officer name:"+officer_name+"mobile:"+officer_mobile+"Police Name:"+police_name+"mobile"+police_mobile);
         holder.call_img_officer.setImageResource(R.drawable.baseline_call_24);
         holder.call_img_police.setImageResource(R.drawable.baseline_call_24);
 
@@ -58,10 +76,10 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
             sst_name_hi_tv=itemView.findViewById(R.id.team_name_hi_tv);
             assembly_tv=itemView.findViewById(R.id.assembly_tv);
             shift_tv=itemView.findViewById(R.id.shift_tv);
-//            officer_name_tv=itemView.findViewById(R.id.officer_name_tv);
-//            officer_mobile_tv=itemView.findViewById(R.id.officer_mobile_tv);
-//            police_name_tv=itemView.findViewById(R.id.police_office_name_tv);
-//            police_mobile_tv=itemView.findViewById(R.id.police_mobile_tv);
+            officer_name_tv=itemView.findViewById(R.id.officer_name_tv);
+            officer_mobile_tv=itemView.findViewById(R.id.officer_mobile_tv);
+            police_name_tv=itemView.findViewById(R.id.police_office_name_tv);
+            police_mobile_tv=itemView.findViewById(R.id.police_mobile_tv);
             call_img_officer=itemView.findViewById(R.id.call_img_officer);
             call_img_police=itemView.findViewById(R.id.call_img_police);
         }

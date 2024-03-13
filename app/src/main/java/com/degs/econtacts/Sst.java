@@ -18,7 +18,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.model.Progress;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,11 +26,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Sst extends AppCompatActivity {
-ArrayList<Sst_Model>sstModelArrayList;
-Sst_RC_Adapter adapter;
-RecyclerView recyclerView;
-ProgressDialog progressDialog;
-SearchView searchView;
+    ArrayList<Sst_Model> sstModelArrayList;
+    Sst_RC_Adapter adapter;
+    RecyclerView recyclerView;
+    ProgressDialog progressDialog;
+    SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +42,11 @@ SearchView searchView;
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        sstModelArrayList=new ArrayList<>();
-        recyclerView=findViewById(R.id.recyclerview_sst);
+        sstModelArrayList = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerview_sst);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        progressDialog=new ProgressDialog(this);
-        searchView=findViewById(R.id.searchview_toolbar);
+        progressDialog = new ProgressDialog(this);
+        searchView = findViewById(R.id.searchview_toolbar);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -63,14 +63,13 @@ SearchView searchView;
         progressDialog.show();
         fillSsts();
     }
+
     public void filterList(String text) {
         ArrayList<Sst_Model> filteredList = new ArrayList<>();
         for (Sst_Model sst_model : sstModelArrayList) {
-            if (sst_model.name_eng.toLowerCase().contains(text.toLowerCase())
-                    || sst_model.name_eng.toLowerCase().contains(text.toLowerCase())
+            if (sst_model.name_eng.toLowerCase().contains(text.toLowerCase()) || sst_model.name_eng.toLowerCase().contains(text.toLowerCase())
 
-                    || sst_model.name_hi.toLowerCase().contains(text.toLowerCase())
-                    || sst_model.assembly_name_eng.toLowerCase().contains(text.toLowerCase())) {
+                    || sst_model.name_hi.toLowerCase().contains(text.toLowerCase()) || sst_model.assembly_name_eng.toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(sst_model);
             }
             if (filteredList.isEmpty()) {
@@ -87,8 +86,8 @@ SearchView searchView;
         AndroidNetworking.get("https://ndpm.vinayakinfotech.co.in/api/allSsts").setPriority(Priority.HIGH).build().getAsJSONArray(new JSONArrayRequestListener() {
             @Override
             public void onResponse(JSONArray response) {
-                Log.d("response", String.valueOf(response));
-//                ArrayList<Officer_Model>officersList;
+                //Log.d("response", String.valueOf(response));
+
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject sst = response.getJSONObject(i);
@@ -99,22 +98,28 @@ SearchView searchView;
                         String shift = sst.getString("shift");
                         String assembly_name_eng = sst.getJSONObject("assembly").getString("name_eng");
                         String assembly_name_hi = sst.getJSONObject("assembly").getString("name_hi");
-                       JSONArray officers=sst.getJSONArray("officers");
-                       ArrayList<Officer_Model>officersList=new ArrayList<>();
-//                       if (officers.length()>1){
-//                           for (int j = 0; j <officers.length() ; j++) {
-//                               JSONObject officer = response.getJSONObject(j);
-//                               int officer_id = officer.getInt("id");
-//                               int officer_rank = officer.getInt("rank");
-//                               String officer_name_eng = officer.getString("name_eng");
-//                               String officer_name_hi = officer.getString("name_hi");
-//                               String officer_mobile = officer.getString("mobile");
-//                               String officer_email = officer.getString("email");
-//                               officersList.add(new Officer_Model(officer_id,officer_rank,officer_name_eng,officer_name_hi,officer_mobile,officer_email));
-//
-//                           }
-//                       }
-                        Sst_Model sst_model = new Sst_Model(id,assembly_id,name_eng,name_hi,shift,assembly_name_eng,assembly_name_hi);
+                        JSONArray officers = sst.getJSONArray("officers");
+
+                        ArrayList<Officer_Model> officersList = new ArrayList<>();
+                        if (officers.length() > 1) {
+                            for (int j = 0; j < officers.length(); j++) {
+                                JSONObject officer = officers.getJSONObject(j);
+                                int officer_id = officer.getInt("id");
+                                int officer_rank = officer.getInt("rank");
+                                String officer_name_eng = officer.getString("name_eng");
+                                String officer_name_hi = officer.getString("name_hi");
+                                String officer_mobile = officer.getString("mobile");
+                                String officer_email = officer.getString("email");
+                                officersList.add(new Officer_Model(officer_id, officer_rank, officer_name_eng, officer_name_hi, officer_mobile, officer_email));
+
+                            }
+                        } else {
+                            officersList.add(new Officer_Model(100, 1000, "officer_name_eng", "officer_name_hi", "officer_mobile", "officer_email"));
+                            officersList.add(new Officer_Model(101, 1000, "police_name_eng", "police_name_hi", "police_mobile", "police_email"));
+
+                        }
+
+                        Sst_Model sst_model = new Sst_Model(id, assembly_id, name_eng, name_hi, shift, assembly_name_eng, assembly_name_hi, officersList);
                         sstModelArrayList.add(sst_model);
 
                     } catch (JSONException e) {
