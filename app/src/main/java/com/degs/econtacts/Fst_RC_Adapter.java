@@ -1,6 +1,8 @@
 package com.degs.econtacts;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,6 +61,36 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
         Log.d("Details of Officers List","Officer name:"+officer_name+"mobile:"+officer_mobile+"Police Name:"+police_name+"mobile"+police_mobile);
         holder.call_img_officer.setImageResource(R.drawable.baseline_call_24);
         holder.call_img_police.setImageResource(R.drawable.baseline_call_24);
+        holder.sms_img_officer.setImageResource(R.drawable.baseline_sms_24);
+        holder.sms_img_police.setImageResource(R.drawable.baseline_sms_24);
+        holder.sms_img_officer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(0).mobile;
+                smsClicked(number);
+            }
+        });
+        holder.sms_img_police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).mobile;
+                smsClicked(number);
+            }
+        });
+        holder.call_img_officer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(0).mobile;
+                callClicked(number);
+            }
+        });
+        holder.call_img_police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).mobile;
+                callClicked(number);
+            }
+        });
 
     }
 
@@ -69,7 +101,7 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView fst_name_eng_tv,fst_name_hi_tv,assembly_tv,shift_tv,officer_name_tv,officer_mobile_tv,police_name_tv,police_mobile_tv;
-        ImageView call_img_officer,call_img_police;
+        ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             fst_name_eng_tv=itemView.findViewById(R.id.team_name_eng_tv);
@@ -82,10 +114,37 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
             police_mobile_tv=itemView.findViewById(R.id.police_mobile_tv);
             call_img_officer=itemView.findViewById(R.id.call_img_officer);
             call_img_police=itemView.findViewById(R.id.call_img_police);
+            sms_img_officer=itemView.findViewById(R.id.sms_img_officer);
+            sms_img_police=itemView.findViewById(R.id.sms_img_police);
         }
     }
     public void setFilteredList(ArrayList<Fst_Model> filteredList) {
         this.fstModelArrayList = filteredList;
         notifyDataSetChanged();
+    }
+    public void smsClicked(String number){
+        Intent smsIntent = new Intent(Intent.ACTION_SENDTO,
+                Uri.parse("sms:"+number));
+        smsIntent.putExtra("sms_body", "Hello");
+        smsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        context.startActivity(smsIntent);
+
+    }
+    public void composeEmail(String[] addresses, String subject,Context context) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+    public void callClicked(String number) {
+
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(Uri.parse("tel:" + number));
+        callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(callIntent);
+
     }
 }

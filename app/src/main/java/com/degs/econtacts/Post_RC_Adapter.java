@@ -1,6 +1,8 @@
 package com.degs.econtacts;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,4 +56,5 @@ public class Post_RC_Adapter extends RecyclerView.Adapter<Post_RC_Adapter.ViewHo
         this.postModelArrayList = filteredList;
         notifyDataSetChanged();
     }
+
 }
