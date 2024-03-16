@@ -55,6 +55,7 @@ public class Booth extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                filterList(newText);
                 return false;
             }
         });
@@ -81,51 +82,51 @@ public class Booth extends AppCompatActivity {
                                 String booth_name_eng = booth.getString("name_eng");
                                 String booth_name_hi = booth.getString("name_hi");
                                 String address = booth.getString("address");
-                                String blo_name_eng, blo_name_hi, blo_name_mobile;
-                                String sector_name_eng, sector_name_hi;
-                                String assembly_name_eng, assembly_name_hi;
-                                blo_name_eng = "";
-                                blo_name_hi = "";
-                                blo_name_mobile = "";
-                                sector_name_hi = "";
-                                sector_name_eng = "";
-                                assembly_name_hi = "";
-                                assembly_name_eng = "";
-//                                JSONArray booth_Officers = booth.getJSONArray("officers");
-//                                if (!(booth_Officers == null)) {
-//                                    if (booth_Officers.length() > 0) {
-//                                        for (int j = 0; j < booth_Officers.length(); j++) {
-//                                            JSONObject boothOfficer = booth_Officers.getJSONObject(j);
-//                                            if (boothOfficer.getJSONObject("role").getInt("id") == 14) {
-//                                                blo_name_eng = boothOfficer.getJSONObject("officers").getString("name_eng");
-//                                                blo_name_hi = boothOfficer.getJSONObject("officers").getString("name_hi");
-//                                                blo_name_mobile = boothOfficer.getJSONObject("officers").getString("mobile");
-//                                                sector_name_hi = boothOfficer.getJSONObject("sector").getString("name_hi");
-//                                                sector_name_eng = boothOfficer.getJSONObject("sector").getString("name_eng");
-//                                                assembly_name_hi = boothOfficer.getJSONObject("assembly").getString("name_hi");
-//                                                assembly_name_eng = boothOfficer.getJSONObject("assembly").getString("name_eng");
-//                                            } else {
-//                                                blo_name_eng = "";
-//                                                blo_name_hi = "";
-//                                                blo_name_mobile = "";
-//                                                sector_name_hi = "";
-//                                                sector_name_eng = "";
-//                                                assembly_name_hi = "";
-//                                                assembly_name_eng = "";
-//                                            }
+                                String lat = booth.getString("lat");
+                                String lng = booth.getString("lng");
+                                int webcasting = booth.getInt("webcasting");
+                                int cctv = booth.getInt("cctv");
+                                int videography = booth.getInt("videography");
+                                int data_network = booth.getInt("data_network");
+                                int call_network = booth.getInt("call_network");
+                                int critical = booth.getInt("critical");
+                                int vulnarable = booth.getInt("vulnarable");
+
 //
-//
-//                                        }
-//
-//                                    }
-//                                }
-                                Booth_Model boothModel = new Booth_Model(id, assembly_id, booth_no, booth_name_eng, booth_name_hi, address, blo_name_eng, blo_name_hi, blo_name_mobile, sector_name_eng, sector_name_hi, assembly_name_eng, assembly_name_hi);
+                                String blo_name_eng = "";
+                                String blo_name_hi = "";
+                                String blo_mobile = "";
+                                JSONArray officers = booth.getJSONArray("officers");
+                                String sector_name_eng = booth.getJSONObject("sector").getString("name_eng");
+                                String sector_name_hi = booth.getJSONObject("sector").getString("name_hi");
+                                String assembly_name_eng = booth.getJSONObject("assembly").getString("code");
+                                String assembly_name_hi = booth.getJSONObject("assembly").getString("name_hi");
+                                if (officers.length() > 0) {
+                                    for (int j = 0; j < officers.length(); j++) {
+                                        JSONObject officer = officers.getJSONObject(j);
+                                        if (officer.getInt("role_id") == 14) {
+                                            blo_name_eng = officer.getString("name_eng");
+                                            blo_name_hi = officer.getString("name_hi");
+                                            blo_mobile = officer.getString("mobile");
+                                        }
+
+                                    }
+
+                                } else {
+                                    blo_name_eng = "";
+                                    blo_name_hi = "";
+                                    blo_mobile = "";
+                                }
+                                Booth_Model boothModel = new Booth_Model(id, assembly_id, booth_no, booth_name_eng, booth_name_hi, address,
+                                        blo_name_eng, blo_name_hi, blo_mobile, sector_name_eng, sector_name_hi, assembly_name_eng, assembly_name_hi,
+                                        lat, lng, webcasting, cctv, videography, critical, vulnarable, call_network, data_network);
                                 boothModelArrayList.add(boothModel);
                             } catch (JSONException e) {
                                 throw new RuntimeException(e);
                             }
 
                         }
+                        Log.d("List", boothModelArrayList.iterator().toString());
                         adapter = new Booth_RC_Adapter(Booth.this, boothModelArrayList);
                         recyclerView.setAdapter(adapter);
                         progressDialog.dismiss();

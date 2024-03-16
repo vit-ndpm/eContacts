@@ -81,14 +81,16 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
             @Override
             public void onClick(View v) {
                 String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(0).mobile;
-                callClicked(number);
+                My_Utility myUtility = new My_Utility();
+                myUtility.callClicked(number,context);
             }
         });
         holder.call_img_police.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).mobile;
-                callClicked(number);
+                String number = fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).mobile;
+                My_Utility myUtility = new My_Utility();
+                myUtility.callClicked(number,context);
             }
         });
 
