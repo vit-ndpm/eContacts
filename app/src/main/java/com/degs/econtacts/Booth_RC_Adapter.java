@@ -40,39 +40,39 @@ public class Booth_RC_Adapter extends RecyclerView.Adapter<Booth_RC_Adapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        switch (boothModelArrayList.get(position).assembly_id) {
-            case 1:
+        switch (boothModelArrayList.get(position).ac_code) {
+            case 136:
                 holder.assembly_id.setBackgroundResource(R.drawable.seoni_ac_border);
                 holder.assembly_id.setTextColor(Color.parseColor("#FFFFFF"));
                 holder.itemView.setBackgroundResource(R.drawable.seoni_ac_background);
                 break;
-            case 3:
+            case 137:
                 holder.assembly_id.setBackgroundResource(R.drawable.nar_ac_border);
                 holder.assembly_id.setTextColor(Color.parseColor("#FFFFFF"));
                 holder.itemView.setBackgroundResource(R.drawable.nar_ac_background);
                 break;
-            case 4:
+            case 138:
                 holder.assembly_id.setBackgroundResource(R.drawable.sohagpur_ac_border);
                 holder.assembly_id.setTextColor(Color.parseColor("#FFFFFF"));
                 holder.itemView.setBackgroundResource(R.drawable.sohagpur_ac_background);
 
                 break;
-            case 5:
+            case 139:
                 holder.assembly_id.setBackgroundResource(R.drawable.pipariya_ac_border);
                 holder.assembly_id.setTextColor(Color.parseColor("#FFFFFF"));
                 holder.itemView.setBackgroundResource(R.drawable.pipariya_ac_background);
 
                 break;
         }
-        String booth_number = Integer.toString(boothModelArrayList.get(position).booth_no);
+        String booth_number = Integer.toString(boothModelArrayList.get(position).pollingStationCode);
         holder.booth_no.setText(booth_number);
-        holder.booth_name_eng.setText(boothModelArrayList.get(position).booth_name_eng);
-        holder.booth_name_hi.setText(boothModelArrayList.get(position).booth_address);
+        holder.booth_name_eng.setText(boothModelArrayList.get(position).boothName);
+        holder.booth_name_hi.setText(boothModelArrayList.get(position).boothName);
 
-        holder.assembly_id.setText(String.valueOf(boothModelArrayList.get(position).ac_name_eng));
-        holder.blo_name.setText(boothModelArrayList.get(position).blo_name_eng);
-        holder.blo_mobile.setText(boothModelArrayList.get(position).blo_mobile);
-        holder.sector_no.setText(boothModelArrayList.get(position).sector_name_eng);
+        holder.assembly_id.setText(String.valueOf(boothModelArrayList.get(position).ac_code));
+        holder.blo_name.setText(boothModelArrayList.get(position).bLOName);
+        holder.blo_mobile.setText(boothModelArrayList.get(position).bLOMobileNumber);
+//        holder.sector_no.setText(boothModelArrayList.get(position).sectorNumber)
 
 
         //set various Indicators
@@ -118,7 +118,7 @@ public class Booth_RC_Adapter extends RecyclerView.Adapter<Booth_RC_Adapter.View
         holder.img_call_blo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mobile=boothModelArrayList.get(holder.getAdapterPosition()).blo_mobile;
+                String mobile=boothModelArrayList.get(holder.getAdapterPosition()).bLOMobileNumber;
                 My_Utility myUtility=new My_Utility();
                 myUtility.callClicked(mobile,context);
             }
@@ -126,7 +126,7 @@ public class Booth_RC_Adapter extends RecyclerView.Adapter<Booth_RC_Adapter.View
         holder.img_sms_blo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mobile=boothModelArrayList.get(holder.getAdapterPosition()).blo_mobile;
+                String mobile=boothModelArrayList.get(holder.getAdapterPosition()).bLOMobileNumber;
                 My_Utility myUtility=new My_Utility();
                 myUtility.callClicked(mobile,context);
             }

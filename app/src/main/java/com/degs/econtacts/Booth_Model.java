@@ -1,30 +1,81 @@
 package com.degs.econtacts;
 
 public class Booth_Model {
-    int id,assembly_id;
-    int booth_no;
-    String booth_name_eng,booth_name_hi,booth_address;
-    String blo_name_eng,blo_name_hi;
-    String blo_mobile;
-    String sector_name_eng,sector_name_hi;
-    String ac_name_eng,ac_name_hi;
-    String lat,lng;
-    int webcasting,cctv,videography,critical,vulnarable,call_network,data_network;
+    int id, ac_code;
+    int pollingStationCode, pollingStationAuxillaryCode, phanaNearestVillageDistance, sectorNumber;
+    String
+            boothName;
+    String bLOName;
+    String bLOMobileNumber;
+    String personName;
+    String personMobileNumber;
+    String personSTDCode;
+    String personLandLineNumber;
+    String thanaNearestVillage;
+    String thanaSTDPhon;
+    String thanaMobileNumber;
+    String sectorMagistrateName;
+    String sectorOfficerDesignation;
 
-    public Booth_Model(int id, int assembly_id, int booth_no, String booth_name_eng, String booth_name_hi, String booth_address, String blo_name_eng, String blo_name_hi, String blo_mobile, String sector_name_eng, String sector_name_hi, String ac_name_eng, String ac_name_hi, String lat, String lng, int webcasting, int cctv, int videography, int critical, int vulnarable, int call_network, int data_network) {
+    public String getSectorOfficerDesignation() {
+        return sectorOfficerDesignation;
+    }
+
+    public void setSectorOfficerDesignation(String sectorOfficerDesignation) {
+        this.sectorOfficerDesignation = sectorOfficerDesignation;
+    }
+
+    String sectorOfficerName;
+    String sectorOfficerCaderName;
+    String sectorMobileNumber;
+    String sectorPhoneNumber;
+    String localContactPersonNameFirst;
+    String localContactPersonNameFirstMobile;
+    String localContactPersonNameFirstPhone;
+    String localContactPersonNameSecond;
+    String localContactPersonNameSecondMobile;
+    String updated_at;
+    String created_at;
+    String localContactPersonNameSecondPhone;
+    double lat, lng;
+
+    int webcasting, cctv, videography, critical, vulnarable, call_network, data_network, status;
+
+
+    public Booth_Model() {
+    }
+
+    public Booth_Model(int id, int ac_code, int pollingStationCode, int pollingStationAuxillaryCode, int phanaNearestVillageDistance, int sectorNumber, String boothName, String bLOName, String bLOMobileNumber, String personName, String personMobileNumber, String personSTDCode, String personLandLineNumber, String thanaNearestVillage, String thanaSTDPhon, String thanaMobileNumber, String sectorMagistrateName, String sectorOfficerDesignation, String sectorOfficerName, String sectorOfficerCaderName, String sectorMobileNumber, String sectorPhoneNumber, String localContactPersonNameFirst, String localContactPersonNameFirstMobile, String localContactPersonNameFirstPhone, String localContactPersonNameSecond, String localContactPersonNameSecondMobile, String updated_at, String created_at, String localContactPersonNameSecondPhone, double lat, double lng, int webcasting, int cctv, int videography, int critical, int vulnarable, int call_network, int data_network, int status) {
         this.id = id;
-        this.assembly_id = assembly_id;
-        this.booth_no = booth_no;
-        this.booth_name_eng = booth_name_eng;
-        this.booth_name_hi = booth_name_hi;
-        this.booth_address = booth_address;
-        this.blo_name_eng = blo_name_eng;
-        this.blo_name_hi = blo_name_hi;
-        this.blo_mobile = blo_mobile;
-        this.sector_name_eng = sector_name_eng;
-        this.sector_name_hi = sector_name_hi;
-        this.ac_name_eng = ac_name_eng;
-        this.ac_name_hi = ac_name_hi;
+        this.ac_code = ac_code;
+        this.pollingStationCode = pollingStationCode;
+        this.pollingStationAuxillaryCode = pollingStationAuxillaryCode;
+        this.phanaNearestVillageDistance = phanaNearestVillageDistance;
+        this.sectorNumber = sectorNumber;
+        this.boothName = boothName;
+        this.bLOName = bLOName;
+        this.bLOMobileNumber = bLOMobileNumber;
+        this.personName = personName;
+        this.personMobileNumber = personMobileNumber;
+        this.personSTDCode = personSTDCode;
+        this.personLandLineNumber = personLandLineNumber;
+        this.thanaNearestVillage = thanaNearestVillage;
+        this.thanaSTDPhon = thanaSTDPhon;
+        this.thanaMobileNumber = thanaMobileNumber;
+        this.sectorMagistrateName = sectorMagistrateName;
+        this.sectorOfficerDesignation = sectorOfficerDesignation;
+        this.sectorOfficerName = sectorOfficerName;
+        this.sectorOfficerCaderName = sectorOfficerCaderName;
+        this.sectorMobileNumber = sectorMobileNumber;
+        this.sectorPhoneNumber = sectorPhoneNumber;
+        this.localContactPersonNameFirst = localContactPersonNameFirst;
+        this.localContactPersonNameFirstMobile = localContactPersonNameFirstMobile;
+        this.localContactPersonNameFirstPhone = localContactPersonNameFirstPhone;
+        this.localContactPersonNameSecond = localContactPersonNameSecond;
+        this.localContactPersonNameSecondMobile = localContactPersonNameSecondMobile;
+        this.updated_at = updated_at;
+        this.created_at = created_at;
+        this.localContactPersonNameSecondPhone = localContactPersonNameSecondPhone;
         this.lat = lat;
         this.lng = lng;
         this.webcasting = webcasting;
@@ -34,6 +85,7 @@ public class Booth_Model {
         this.vulnarable = vulnarable;
         this.call_network = call_network;
         this.data_network = data_network;
+        this.status = status;
     }
 
     public int getId() {
@@ -44,115 +96,243 @@ public class Booth_Model {
         this.id = id;
     }
 
-    public int getAssembly_id() {
-        return assembly_id;
+    public int getAc_code() {
+        return ac_code;
     }
 
-    public void setAssembly_id(int assembly_id) {
-        this.assembly_id = assembly_id;
+    public void setAc_code(int ac_code) {
+        this.ac_code = ac_code;
     }
 
-    public int getBooth_no() {
-        return booth_no;
+    public int getPollingStationCode() {
+        return pollingStationCode;
     }
 
-    public void setBooth_no(int booth_no) {
-        this.booth_no = booth_no;
+    public void setPollingStationCode(int pollingStationCode) {
+        this.pollingStationCode = pollingStationCode;
     }
 
-    public String getBooth_name_eng() {
-        return booth_name_eng;
+    public int getPollingStationAuxillaryCode() {
+        return pollingStationAuxillaryCode;
     }
 
-    public void setBooth_name_eng(String booth_name_eng) {
-        this.booth_name_eng = booth_name_eng;
+    public void setPollingStationAuxillaryCode(int pollingStationAuxillaryCode) {
+        this.pollingStationAuxillaryCode = pollingStationAuxillaryCode;
     }
 
-    public String getBooth_name_hi() {
-        return booth_name_hi;
+    public int getPhanaNearestVillageDistance() {
+        return phanaNearestVillageDistance;
     }
 
-    public void setBooth_name_hi(String booth_name_hi) {
-        this.booth_name_hi = booth_name_hi;
+    public void setPhanaNearestVillageDistance(int phanaNearestVillageDistance) {
+        this.phanaNearestVillageDistance = phanaNearestVillageDistance;
     }
 
-    public String getBooth_address() {
-        return booth_address;
+    public int getSectorNumber() {
+        return sectorNumber;
     }
 
-    public void setBooth_address(String booth_address) {
-        this.booth_address = booth_address;
+    public void setSectorNumber(int sectorNumber) {
+        this.sectorNumber = sectorNumber;
     }
 
-    public String getBlo_name_eng() {
-        return blo_name_eng;
+    public String getBoothName() {
+        return boothName;
     }
 
-    public void setBlo_name_eng(String blo_name_eng) {
-        this.blo_name_eng = blo_name_eng;
+    public void setBoothName(String boothName) {
+        this.boothName = boothName;
     }
 
-    public String getBlo_name_hi() {
-        return blo_name_hi;
+    public String getbLOName() {
+        return bLOName;
     }
 
-    public void setBlo_name_hi(String blo_name_hi) {
-        this.blo_name_hi = blo_name_hi;
+    public void setbLOName(String bLOName) {
+        this.bLOName = bLOName;
     }
 
-    public String getBlo_mobile() {
-        return blo_mobile;
+    public String getbLOMobileNumber() {
+        return bLOMobileNumber;
     }
 
-    public void setBlo_mobile(String blo_mobile) {
-        this.blo_mobile = blo_mobile;
+    public void setbLOMobileNumber(String bLOMobileNumber) {
+        this.bLOMobileNumber = bLOMobileNumber;
     }
 
-    public String getSector_name_eng() {
-        return sector_name_eng;
+    public String getPersonName() {
+        return personName;
     }
 
-    public void setSector_name_eng(String sector_name_eng) {
-        this.sector_name_eng = sector_name_eng;
+    public void setPersonName(String personName) {
+        this.personName = personName;
     }
 
-    public String getSector_name_hi() {
-        return sector_name_hi;
+    public String getPersonMobileNumber() {
+        return personMobileNumber;
     }
 
-    public void setSector_name_hi(String sector_name_hi) {
-        this.sector_name_hi = sector_name_hi;
+    public void setPersonMobileNumber(String personMobileNumber) {
+        this.personMobileNumber = personMobileNumber;
     }
 
-    public String getAc_name_eng() {
-        return ac_name_eng;
+    public String getPersonSTDCode() {
+        return personSTDCode;
     }
 
-    public void setAc_name_eng(String ac_name_eng) {
-        this.ac_name_eng = ac_name_eng;
+    public void setPersonSTDCode(String personSTDCode) {
+        this.personSTDCode = personSTDCode;
     }
 
-    public String getAc_name_hi() {
-        return ac_name_hi;
+    public String getPersonLandLineNumber() {
+        return personLandLineNumber;
     }
 
-    public void setAc_name_hi(String ac_name_hi) {
-        this.ac_name_hi = ac_name_hi;
+    public void setPersonLandLineNumber(String personLandLineNumber) {
+        this.personLandLineNumber = personLandLineNumber;
     }
 
-    public String getLat() {
+    public String getThanaNearestVillage() {
+        return thanaNearestVillage;
+    }
+
+    public void setThanaNearestVillage(String thanaNearestVillage) {
+        this.thanaNearestVillage = thanaNearestVillage;
+    }
+
+    public String getThanaSTDPhon() {
+        return thanaSTDPhon;
+    }
+
+    public void setThanaSTDPhon(String thanaSTDPhon) {
+        this.thanaSTDPhon = thanaSTDPhon;
+    }
+
+    public String getThanaMobileNumber() {
+        return thanaMobileNumber;
+    }
+
+    public void setThanaMobileNumber(String thanaMobileNumber) {
+        this.thanaMobileNumber = thanaMobileNumber;
+    }
+
+    public String getSectorMagistrateName() {
+        return sectorMagistrateName;
+    }
+
+    public void setSectorMagistrateName(String sectorMagistrateName) {
+        this.sectorMagistrateName = sectorMagistrateName;
+    }
+
+    public String getSectorOfficerName() {
+        return sectorOfficerName;
+    }
+
+    public void setSectorOfficerName(String sectorOfficerName) {
+        this.sectorOfficerName = sectorOfficerName;
+    }
+
+    public String getSectorOfficerCaderName() {
+        return sectorOfficerCaderName;
+    }
+
+    public void setSectorOfficerCaderName(String sectorOfficerCaderName) {
+        this.sectorOfficerCaderName = sectorOfficerCaderName;
+    }
+
+    public String getSectorMobileNumber() {
+        return sectorMobileNumber;
+    }
+
+    public void setSectorMobileNumber(String sectorMobileNumber) {
+        this.sectorMobileNumber = sectorMobileNumber;
+    }
+
+    public String getSectorPhoneNumber() {
+        return sectorPhoneNumber;
+    }
+
+    public void setSectorPhoneNumber(String sectorPhoneNumber) {
+        this.sectorPhoneNumber = sectorPhoneNumber;
+    }
+
+    public String getLocalContactPersonNameFirst() {
+        return localContactPersonNameFirst;
+    }
+
+    public void setLocalContactPersonNameFirst(String localContactPersonNameFirst) {
+        this.localContactPersonNameFirst = localContactPersonNameFirst;
+    }
+
+    public String getLocalContactPersonNameFirstMobile() {
+        return localContactPersonNameFirstMobile;
+    }
+
+    public void setLocalContactPersonNameFirstMobile(String localContactPersonNameFirstMobile) {
+        this.localContactPersonNameFirstMobile = localContactPersonNameFirstMobile;
+    }
+
+    public String getLocalContactPersonNameFirstPhone() {
+        return localContactPersonNameFirstPhone;
+    }
+
+    public void setLocalContactPersonNameFirstPhone(String localContactPersonNameFirstPhone) {
+        this.localContactPersonNameFirstPhone = localContactPersonNameFirstPhone;
+    }
+
+    public String getLocalContactPersonNameSecond() {
+        return localContactPersonNameSecond;
+    }
+
+    public void setLocalContactPersonNameSecond(String localContactPersonNameSecond) {
+        this.localContactPersonNameSecond = localContactPersonNameSecond;
+    }
+
+    public String getLocalContactPersonNameSecondMobile() {
+        return localContactPersonNameSecondMobile;
+    }
+
+    public void setLocalContactPersonNameSecondMobile(String localContactPersonNameSecondMobile) {
+        this.localContactPersonNameSecondMobile = localContactPersonNameSecondMobile;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getLcalContactPersonNameSecondPhone() {
+        return localContactPersonNameSecondPhone;
+    }
+
+    public void setLcalContactPersonNameSecondPhone(String localContactPersonNameSecondPhone) {
+        this.localContactPersonNameSecondPhone = localContactPersonNameSecondPhone;
+    }
+
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 
@@ -210,5 +390,13 @@ public class Booth_Model {
 
     public void setData_network(int data_network) {
         this.data_network = data_network;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
