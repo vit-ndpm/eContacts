@@ -1,23 +1,17 @@
 package com.degs.econtacts;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHolder> {
     Context context;
@@ -67,6 +61,10 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
         holder.call_img_police.setImageResource(R.drawable.baseline_call_24);
         holder.sms_img_officer.setImageResource(R.drawable.baseline_sms_24);
         holder.sms_img_police.setImageResource(R.drawable.baseline_sms_24);
+        holder.share_img_officer.setImageResource(R.drawable.share);
+        holder.share_img_police.setImageResource(R.drawable.share);
+        holder.whatsapp_img_officer.setImageResource(R.drawable.whatsapp);
+        holder.whatsapp_img_officer.setImageResource(R.drawable.whatsapp);
         holder.sms_img_officer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,22 +97,40 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
                 myUtility.callClicked(number,context);
             }
         });
-        holder.call_img_officer.setOnClickListener(new View.OnClickListener() {
+        holder.share_img_officer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name=sstModelArrayList.get(holder.getAdapterPosition()).sstOfficersList.get(0).name_eng;
                 String number=sstModelArrayList.get(holder.getAdapterPosition()).sstOfficersList.get(0).mobile;
                My_Utility myUtility=new My_Utility();
-               myUtility.callClicked(number,context);
+               myUtility.shareText(context,"Name:"+name+"\nMobile"+number);
+            }
+        });
+        holder.share_img_police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name=sstModelArrayList.get(holder.getAdapterPosition()).sstOfficersList.get(1).name_eng;
+                String number=sstModelArrayList.get(holder.getAdapterPosition()).sstOfficersList.get(1).mobile;
+                My_Utility myUtility=new My_Utility();
+                myUtility.shareText(context,"Name:"+name+"\nMobile"+number);
 
 
             }
         });
-        holder.call_img_police.setOnClickListener(new View.OnClickListener() {
+        holder.whatsapp_img_officer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=sstModelArrayList.get(holder.getAdapterPosition()).sstOfficersList.get(0).mobile;
+               My_Utility myUtility=new My_Utility();
+               myUtility.openWhatsApp(context,number);
+            }
+        });
+        holder.whatsapp_img_police.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String number=sstModelArrayList.get(holder.getAdapterPosition()).sstOfficersList.get(1).mobile;
                 My_Utility myUtility=new My_Utility();
-                myUtility.callClicked(number,context);
+                myUtility.openWhatsApp(context,number);
 
 
             }
@@ -129,11 +145,11 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView sst_name_eng_tv,sst_name_hi_tv,assembly_tv,shift_tv,officer_name_tv,officer_mobile_tv,police_name_tv,police_mobile_tv;
-        ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer;
+        ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer,share_img_officer,share_img_police,whatsapp_img_officer,whatsapp_img_police;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            sst_name_eng_tv=itemView.findViewById(R.id.team_name_eng_tv);
-            sst_name_hi_tv=itemView.findViewById(R.id.team_name_hi_tv);
+            sst_name_eng_tv=itemView.findViewById(R.id.officer_name_eng_tv);
+            sst_name_hi_tv=itemView.findViewById(R.id.officer_name_hi_tv);
             assembly_tv=itemView.findViewById(R.id.assembly_tv);
             shift_tv=itemView.findViewById(R.id.shift_tv);
             officer_name_tv=itemView.findViewById(R.id.officer_name_tv);
@@ -144,6 +160,10 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
             call_img_police=itemView.findViewById(R.id.call_img_police);
             sms_img_officer=itemView.findViewById(R.id.sms_img_officer);
             sms_img_police=itemView.findViewById(R.id.sms_img_police);
+            share_img_officer=itemView.findViewById(R.id.share_img_officer);
+            share_img_police=itemView.findViewById(R.id.share_img_police);
+            whatsapp_img_officer=itemView.findViewById(R.id.whatsapp_img_officer);
+            whatsapp_img_police=itemView.findViewById(R.id.whatsapp_img_police);
         }
     }
     public void setFilteredList(ArrayList<Sst_Model> filteredList) {

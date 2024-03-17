@@ -46,8 +46,8 @@ public class Role_RC_Adapter extends RecyclerView.Adapter<Role_RC_Adapter.ViewHo
         TextView role_name_hi;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            role_name_eng=itemView.findViewById(R.id.team_name_eng_tv);
-            role_name_hi=itemView.findViewById(R.id.team_name_hi_tv);
+            role_name_eng=itemView.findViewById(R.id.officer_name_eng_tv);
+            role_name_hi=itemView.findViewById(R.id.officer_name_hi_tv);
         }
     }
     public void setFilteredList(ArrayList<Role_Model> filteredList) {

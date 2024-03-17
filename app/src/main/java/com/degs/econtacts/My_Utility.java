@@ -69,4 +69,28 @@ public class My_Utility {
         }
         return false;
     }
+    public void openWhatsApp(Context context,String phoneNumber) {
+        if (isValidMobile(phoneNumber)){
+            try {
+                // Specify the number with the country code
+                String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + "message";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                context.startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                // Handle exceptions, such as when WhatsApp is not installed on the device
+            }
+        }
+        else{
+            Toast.makeText(context, "Invalid Mobile Number Please Check Again", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void shareText(Context context,String textToShare) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, textToShare);
+        context.startActivity(Intent.createChooser(intent, "Share via"));
+    }
 }

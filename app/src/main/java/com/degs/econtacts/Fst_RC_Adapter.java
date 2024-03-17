@@ -51,6 +51,53 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
         holder.officer_mobile_tv.setText(officer_mobile);
         holder.police_name_tv.setText(police_name);
         holder.police_mobile_tv.setText(police_mobile);
+
+        holder.call_img_officer.setImageResource(R.drawable.baseline_call_24);
+        holder.call_img_police.setImageResource(R.drawable.baseline_call_24);
+        holder.sms_img_officer.setImageResource(R.drawable.baseline_sms_24);
+        holder.sms_img_police.setImageResource(R.drawable.baseline_sms_24);
+        holder.share_img_officer.setImageResource(R.drawable.share);
+        holder.whatsapp_img_officer.setImageResource(R.drawable.whatsapp);
+        holder.whatsapp_img_officer.setImageResource(R.drawable.whatsapp);
+
+        holder.share_img_officer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(0).name_eng;
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(0).mobile;
+                My_Utility myUtility=new My_Utility();
+                myUtility.shareText(context,"Name: "+name+"\nMobile: "+number);
+            }
+        });
+        holder.share_img_police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).name_eng;
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).mobile;
+                My_Utility myUtility=new My_Utility();
+                myUtility.shareText(context,"Name:"+name+"\nMobile: "+number);
+
+
+            }
+        });
+        holder.whatsapp_img_officer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(0).mobile;
+                My_Utility myUtility=new My_Utility();
+                myUtility.openWhatsApp(context,number);
+            }
+        });
+        holder.whatsapp_img_police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number=fstModelArrayList.get(holder.getAdapterPosition()).fstOfficersList.get(1).mobile;
+                My_Utility myUtility=new My_Utility();
+                myUtility.openWhatsApp(context,number);
+
+
+            }
+        });
 //         officer_name="";
 //         officer_mobile="";
 //         police_name="";
@@ -58,11 +105,7 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
 
         //Office and Police Office Detail End
 
-        Log.d("Details of Officers List","Officer name:"+officer_name+"mobile:"+officer_mobile+"Police Name:"+police_name+"mobile"+police_mobile);
-        holder.call_img_officer.setImageResource(R.drawable.baseline_call_24);
-        holder.call_img_police.setImageResource(R.drawable.baseline_call_24);
-        holder.sms_img_officer.setImageResource(R.drawable.baseline_sms_24);
-        holder.sms_img_police.setImageResource(R.drawable.baseline_sms_24);
+
         holder.sms_img_officer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,11 +146,11 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView fst_name_eng_tv,fst_name_hi_tv,assembly_tv,shift_tv,officer_name_tv,officer_mobile_tv,police_name_tv,police_mobile_tv;
-        ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer;
+        ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer,share_img_officer,share_img_police,whatsapp_img_officer,whatsapp_img_police;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            fst_name_eng_tv=itemView.findViewById(R.id.team_name_eng_tv);
-            fst_name_hi_tv=itemView.findViewById(R.id.team_name_hi_tv);
+            fst_name_eng_tv=itemView.findViewById(R.id.officer_name_eng_tv);
+            fst_name_hi_tv=itemView.findViewById(R.id.officer_name_hi_tv);
             assembly_tv=itemView.findViewById(R.id.assembly_tv);
             shift_tv=itemView.findViewById(R.id.shift_tv);
             officer_name_tv=itemView.findViewById(R.id.officer_name_tv);
@@ -118,6 +161,10 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
             call_img_police=itemView.findViewById(R.id.call_img_police);
             sms_img_officer=itemView.findViewById(R.id.sms_img_officer);
             sms_img_police=itemView.findViewById(R.id.sms_img_police);
+            share_img_officer=itemView.findViewById(R.id.share_img_officer);
+            share_img_police=itemView.findViewById(R.id.share_img_police);
+            whatsapp_img_officer=itemView.findViewById(R.id.whatsapp_img_officer);
+            whatsapp_img_police=itemView.findViewById(R.id.whatsapp_img_police);
         }
     }
     public void setFilteredList(ArrayList<Fst_Model> filteredList) {

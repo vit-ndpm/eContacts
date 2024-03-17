@@ -17,7 +17,7 @@
 
 
         <TextView
-            android:id="@+id/team_name_eng_tv"
+            android:id="@+id/officer_name_eng_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toBottomOf="@+id/assembly_tv" />
 
         <TextView
-            android:id="@+id/team_name_hi_tv"
+            android:id="@+id/officer_name_hi_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -43,9 +43,9 @@
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@+id/team_name_eng_tv"
-            app:layout_constraintStart_toStartOf="@+id/team_name_eng_tv"
-            app:layout_constraintTop_toBottomOf="@+id/team_name_eng_tv"
+            app:layout_constraintEnd_toEndOf="@+id/officer_name_eng_tv"
+            app:layout_constraintStart_toStartOf="@+id/officer_name_eng_tv"
+            app:layout_constraintTop_toBottomOf="@+id/officer_name_eng_tv"
             app:layout_wrapBehaviorInParent="included" />
 
         <TextView
@@ -81,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team_name_hi_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/officer_name_hi_tv" />
 
         <TextView
             android:id="@+id/officer_name_tv"
@@ -195,10 +195,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/call_img_officer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
             app:layout_constraintStart_toEndOf="@+id/call_img_officer"
             app:layout_constraintTop_toTopOf="@+id/call_img_officer"
             app:srcCompat="@drawable/baseline_sms_24" />
@@ -215,6 +212,46 @@
             app:layout_constraintStart_toEndOf="@+id/call_img_police"
             app:layout_constraintTop_toTopOf="@+id/call_img_police"
             app:srcCompat="@drawable/baseline_sms_24" />
+
+        <ImageView
+            android:id="@+id/whatsapp_img_officer"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sms_img_officer"
+            app:layout_constraintStart_toEndOf="@+id/sms_img_officer"
+            app:layout_constraintTop_toTopOf="@+id/sms_img_officer"
+            app:srcCompat="@drawable/whatsapp" />
+
+        <ImageView
+            android:id="@+id/whatsapp_img_police"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sms_img_police"
+            app:layout_constraintStart_toEndOf="@+id/sms_img_police"
+            app:layout_constraintTop_toTopOf="@+id/sms_img_police"
+            app:srcCompat="@drawable/whatsapp" />
+
+        <ImageView
+            android:id="@+id/share_img_officer"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/whatsapp_img_officer"
+            app:layout_constraintStart_toEndOf="@+id/whatsapp_img_officer"
+            app:layout_constraintTop_toTopOf="@+id/whatsapp_img_officer"
+            app:srcCompat="@drawable/share" />
+
+        <ImageView
+            android:id="@+id/share_img_police"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/whatsapp_img_police"
+            app:layout_constraintStart_toEndOf="@+id/whatsapp_img_police"
+            app:layout_constraintTop_toTopOf="@+id/whatsapp_img_police"
+            app:srcCompat="@drawable/share" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

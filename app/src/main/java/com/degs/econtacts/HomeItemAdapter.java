@@ -43,6 +43,9 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
                     case 1:
                         context.startActivity(new Intent(context, RO_Office.class));
                         break;
+                        case 2:
+                        context.startActivity(new Intent(context, ARO_Office.class));
+                        break;
                         case 5:
                         context.startActivity(new Intent(context, Role.class));
                         break;

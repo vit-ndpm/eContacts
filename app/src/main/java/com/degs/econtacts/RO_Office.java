@@ -89,21 +89,25 @@ public class RO_Office extends AppCompatActivity {
         AndroidNetworking.initialize(this);
         AndroidNetworking.get("https://ndpm.vinayakinfotech.co.in/api/roOffice").setPriority(Priority.HIGH).build().getAsJSONArray(new JSONArrayRequestListener() {
             @Override
-            public void onResponse(JSONArray response) {
-                Log.d("response", String.valueOf(response));
+            public void onResponse(JSONArray officers) {
+                Log.d("response", String.valueOf(officers));
 
-                for (int i = 0; i < response.length(); i++) {
+                for (int i = 0; i < officers.length(); i++) {
                     try {
-                        JSONObject post = response.getJSONObject(i);
-                        int id = post.getInt("id");
-                        int rank = post.getInt("rank");
-                        String name_eng = post.getString("name_eng");
-                        String name_hi = post.getString("name_hi");
-                        String mobile = post.getString("mobile");
-                        String email = post.getString("email");
-
-                        RO_Office_Model roOfficeModel = new RO_Office_Model(id,name_eng,name_hi,mobile,email);
+                        JSONObject officer = officers.getJSONObject(i);
+                        int id = officer.getInt("id");
+                        String department = officer.getJSONObject("department").getString("name_eng");
+                        String post = officer.getJSONObject("post").getString("name_eng");
+                        String role = officer.getJSONObject("role").getString("name_eng");
+                        String assembly = officer.getJSONObject("assembly").getString("name_eng");
+                        String name_eng = officer.getString("name_eng");
+                        String name_hi = officer.getString("name_hi");
+                        String mobile = officer.getString("mobile");
+                        String email = officer.getString("email");
+                        RO_Office_Model roOfficeModel = new RO_Office_Model(id,name_eng,name_hi,mobile,email,department,post,assembly,role);
                         roOfficeModelArrayList.add(roOfficeModel);
+
+
 
                     } catch (JSONException e) {
                         throw new RuntimeException(e);

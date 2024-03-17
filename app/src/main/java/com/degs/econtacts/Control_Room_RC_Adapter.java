@@ -102,8 +102,8 @@ public class Control_Room_RC_Adapter extends RecyclerView.Adapter<Control_Room_R
          ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            controlRoom_name_eng_tv=itemView.findViewById(R.id.team_name_eng_tv);
-            controlRoom_name_hi_tv=itemView.findViewById(R.id.team_name_hi_tv);
+            controlRoom_name_eng_tv=itemView.findViewById(R.id.officer_name_eng_tv);
+            controlRoom_name_hi_tv=itemView.findViewById(R.id.officer_name_hi_tv);
             shift_tv=itemView.findViewById(R.id.shift_tv);
             officer_name_tv=itemView.findViewById(R.id.officer_name_tv);
             officer_mobile_tv=itemView.findViewById(R.id.officer_mobile_tv);
