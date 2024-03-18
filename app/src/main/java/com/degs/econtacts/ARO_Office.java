@@ -25,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ARO_Office extends AppCompatActivity {
     ArrayList<ARO_Office_Model>aroOfficeModelArrayList;
@@ -32,6 +33,7 @@ public class ARO_Office extends AppCompatActivity {
     SearchView searchView;
     ProgressDialog progressDialog;
     RecyclerView recyclerView;
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,10 @@ public class ARO_Office extends AppCompatActivity {
                 return false;
             }
         });
-        progressDialog.setTitle("ARO Loader");
-        progressDialog.setTitle("Loading.....");
+        url = Objects.requireNonNull(getIntent().getExtras()).getString("url");
+        Log.d("url", url);
+        progressDialog.setTitle("Officer Loader");
+        progressDialog.setTitle("Loading Officers.....");
         progressDialog.show();
         fillAROs();
 
@@ -69,40 +73,48 @@ public class ARO_Office extends AppCompatActivity {
 
     private void fillAROs() {
         AndroidNetworking.initialize(this);
-        AndroidNetworking.get("https://ndpm.vinayakinfotech.co.in/api/aroOffice").setPriority(Priority.HIGH).build().getAsJSONArray(new JSONArrayRequestListener() {
+        AndroidNetworking.get(url).setPriority(Priority.HIGH).build().getAsJSONArray(new JSONArrayRequestListener() {
             @Override
             public void onResponse(JSONArray officers) {
                 Log.d("response", String.valueOf(officers));
 
-                for (int i = 0; i < officers.length(); i++) {
-                    try {
-                        JSONObject officer = officers.getJSONObject(i);
-                        int id = officer.getInt("id");
-                        String department = officer.getJSONObject("department").getString("name_eng");
-                        String post = officer.getJSONObject("post").getString("name_eng");
-                        String role = officer.getJSONObject("role").getString("name_eng");
-                        String assembly = officer.getJSONObject("assembly").getString("name_eng");
-                        String name_eng = officer.getString("name_eng");
-                        String name_hi = officer.getString("name_hi");
-                        String mobile = officer.getString("mobile");
-                        String email = officer.getString("email");
 
-                        ARO_Office_Model aroOfficeModel = new ARO_Office_Model(id,name_eng,name_hi,mobile,email,department,post,assembly,role);
-                        aroOfficeModelArrayList.add(aroOfficeModel);
+                        for (int i = 0; i < officers.length(); i++) {
+                            try {
+                                JSONObject officer = officers.getJSONObject(i);
+                                int id = officer.getInt("id");
+                                String department = officer.getJSONObject("department").getString("name_eng");
+                                String post = officer.getJSONObject("post").getString("name_eng");
+                                String role = officer.getJSONObject("role").getString("name_eng");
+                                String assembly = officer.getJSONObject("assembly").getString("name_eng");
+                                String name_eng = officer.getString("name_eng");
+                                String name_hi = officer.getString("name_hi");
+                                String mobile = officer.getString("mobile");
+                                String email = officer.getString("email");
 
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
+                                ARO_Office_Model aroOfficeModel = new ARO_Office_Model(id,name_eng,name_hi,mobile,email,department,post,assembly,role);
+                                aroOfficeModelArrayList.add(aroOfficeModel);
+
+                            } catch (JSONException e) {
+                                Toast.makeText(ARO_Office.this, "Error :"+e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                throw new RuntimeException(e);
+                            }
+                        }
+
+
+
                 adapter = new ARO_Office_RC_Adapter(ARO_Office.this, aroOfficeModelArrayList);
-                recyclerView.setAdapter(adapter);
+                    recyclerView.setAdapter(adapter);
+
+
+
                 progressDialog.dismiss();
 
             }
 
             @Override
             public void onError(ANError anError) {
-                Toast.makeText(ARO_Office.this, "Error" + anError.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ARO_Office.this, "Error" + anError.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 Log.e("error", "Error" + anError.getLocalizedMessage());
                 progressDialog.dismiss();
 

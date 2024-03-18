@@ -1,10 +1,12 @@
 package com.degs.econtacts;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +36,18 @@ public class Post_RC_Adapter extends RecyclerView.Adapter<Post_RC_Adapter.ViewHo
         String name_hi=postModelArrayList.get(position).name_hi+"("+postModelArrayList.get(position).department_short_name_hi+")";
         holder.post_name_eng.setText(name);
         holder.post_name_hi.setText(name_hi);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Clicked:"+postModelArrayList.get(holder.getAdapterPosition()).name_eng, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(context,ARO_Office.class);
+                int postId = postModelArrayList.get(holder.getAdapterPosition()).getId();
+                String url="https://ndpm.vinayakinfotech.co.in/api/officerByDeptId/1"+postId;
+                intent.putExtra("url",url);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
 
     }
 

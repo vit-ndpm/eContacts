@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Fst extends AppCompatActivity {
     ArrayList<Fst_Model> fstModelArrayList;
@@ -31,6 +32,8 @@ public class Fst extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressDialog progressDialog;
     SearchView searchView;
+    String url;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class Fst extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        url = Objects.requireNonNull(getIntent().getExtras()).getString("url");
+
         fstModelArrayList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerview_fst);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -82,7 +88,7 @@ public class Fst extends AppCompatActivity {
 
     private void fillFsts() {
         AndroidNetworking.initialize(this);
-        AndroidNetworking.get("https://ndpm.vinayakinfotech.co.in/api/allFsts").setPriority(Priority.HIGH).build().getAsJSONArray(new JSONArrayRequestListener() {
+        AndroidNetworking.get(url).setPriority(Priority.HIGH).build().getAsJSONArray(new JSONArrayRequestListener() {
             @Override
             public void onResponse(JSONArray response) {
                 //Log.d("response", String.valueOf(response));
@@ -113,8 +119,8 @@ public class Fst extends AppCompatActivity {
 
                             }
                         } else {
-                            officersList.add(new Officer_Model(100, 1000, "officer_name_eng", "officer_name_hi", "officer_mobile", "officer_email"));
-                            officersList.add(new Officer_Model(101, 1000, "police_name_eng", "police_name_hi", "police_mobile", "police_email"));
+                            officersList.add(new Officer_Model(100, 1000, "No_Officer", "No Officer", "9999999999", "officer_email"));
+                            officersList.add(new Officer_Model(101, 1000, "No_Police_Office", "No_Police_Office ", "9999999999", "police_email"));
 
                         }
 

@@ -38,15 +38,25 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent;
+                String url;
 
                 switch (homeItemModelArrayList.get(holder.getAdapterPosition()).id) {
                     case 1:
-                        context.startActivity(new Intent(context, RO_Office.class));
+                        intent = new Intent(context, ARO_Office.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/roOffice";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                         break;
-                        case 2:
-                        context.startActivity(new Intent(context, ARO_Office.class));
+                    case 2:
+                        intent = new Intent(context, ARO_Office.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/aroOffice";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                         break;
-                        case 5:
+                    case 5:
                         context.startActivity(new Intent(context, Role.class));
                         break;
                     case 6:
@@ -55,27 +65,41 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
                     case 7:
                         context.startActivity(new Intent(context, Post.class));
                         break;
-                        case 8:
+                    case 8:
                         context.startActivity(new Intent(context, Booth.class));
                         break;
-                        case 9:
+                    case 9:
                         context.startActivity(new Intent(context, Polling_Party.class));
                         break;
-                        case 10:
+                    case 10:
                         context.startActivity(new Intent(context, Control_Room.class));
                         break;
-                        case 11:
-                        context.startActivity(new Intent(context, Fst.class));
+                    case 11:
+                        intent = new Intent(context, Fst.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allFsts";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                         break;
-                        case 12:
-                        context.startActivity(new Intent(context, Sst.class));
+                    case 12:
+                        intent = new Intent(context, Fst.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allSsts";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
+                        case 13:
+                        intent = new Intent(context, Fst.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allVsts";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                         break;
 
 
                 }
             }
         });
-
 
 
     }
