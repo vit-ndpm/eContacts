@@ -95,6 +95,13 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         break;
+                    case 16:
+                        intent = new Intent(context, Imp_Link.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allImpLinks";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
 
 
                 }
