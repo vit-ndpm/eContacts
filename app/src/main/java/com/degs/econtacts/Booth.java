@@ -92,7 +92,6 @@ public class Booth extends AppCompatActivity {
 //                                boothModel.phanaNearestVillageDistance=booth.getInt("ThanaNearestVillageDistance");
                                 boothModel.thanaSTDPhon=booth.getString("ThanaSTDPhon");
                                 boothModel.thanaMobileNumber=booth.getString("ThanaMobileNumber");
-
 //                                boothModel.sectorNumber=booth.getInt("SectorNumber");
                                 boothModel.sectorMagistrateName=booth.getString("SectorMagistrateName");
                                 boothModel.sectorOfficerDesignation=booth.getString("SectorOfficerDesignation");

@@ -56,6 +56,13 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         break;
+                        case 3:
+                        intent = new Intent(context, Nodal.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allNodals";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
                     case 5:
                         context.startActivity(new Intent(context, Role.class));
                         break;

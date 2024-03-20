@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fadingEdge="horizontal"
+    android:fadingEdgeLength="3sp"
+    android:outlineSpotShadowColor="#00C853"
+    android:requiresFadingEdge="vertical"
+    app:cardBackgroundColor="@color/design_default_color_background"
+    app:cardCornerRadius="15sp"
+    app:cardElevation="8sp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="call"
+        android:paddingBottom="10dp">
+        <!-- this is a Job Title Card -->
+
+
+        <TextView
+            android:id="@+id/job_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/nodal_border"
+            android:backgroundTintMode="screen"
+            android:text="Job Name"
+            android:textAlignment="center"
+            android:textColor="#009688"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nodal_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Sandeep Kumar Chaurasiy"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/img_nodal_sms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/job_title" />
+
+        <ImageView
+            android:id="@+id/img_nodal_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="call"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/nodal_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nodal_name"
+            app:srcCompat="@drawable/baseline_call_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/nodal_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="District e-Governance Manager"
+            app:layout_constraintEnd_toEndOf="@+id/nodal_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/nodal_name"
+            app:layout_constraintTop_toBottomOf="@+id/nodal_name" />
+        <!--Assistant Nodal-1 Details-->
+
+        <!--Assistant Nodal-1 Details-->
+
+        <TextView
+            android:id="@+id/as1_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Assistant Nodal Name"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/img_as1_sms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nodal_post" />
+
+        <TextView
+            android:id="@+id/as1_post"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Assistant Nodal Post"
+            app:layout_constraintEnd_toEndOf="@+id/as1_name"
+            app:layout_constraintStart_toStartOf="@+id/as1_name"
+            app:layout_constraintTop_toBottomOf="@+id/as1_name" />
+
+        <!--Assistant Nodal-2 Details-->
+
+        <ImageView
+            android:id="@+id/img_as1_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="call"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/as1_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_as1_email"
+            app:layout_constraintTop_toTopOf="@+id/as1_name"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/baseline_call_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/as2_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Assistant Nodal Name"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/img_as2_sms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/as1_post" />
+
+        <TextView
+            android:id="@+id/as2_post"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Assistant Nodal Post"
+            app:layout_constraintEnd_toEndOf="@+id/as2_name"
+            app:layout_constraintStart_toStartOf="@+id/as2_name"
+            app:layout_constraintTop_toBottomOf="@+id/as2_name" />
+
+        <!--Assistant Nodal-3 Details-->
+
+
+        <ImageView
+            android:id="@+id/img_as2_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="call"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/as2_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_as2_email"
+            app:layout_constraintTop_toTopOf="@+id/as2_name"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/baseline_call_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/as3_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="Assistant Nodal Name"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/img_as3_sms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/as2_post"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/as3_post"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Assistant Nodal Post"
+            app:layout_constraintEnd_toEndOf="@+id/as3_name"
+            app:layout_constraintStart_toStartOf="@+id/as3_name"
+            app:layout_constraintTop_toBottomOf="@+id/as3_name" />
+
+        <ImageView
+            android:id="@+id/img_as3_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="call"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/as3_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_as3_email"
+            app:layout_constraintTop_toTopOf="@+id/as3_name"
+            app:srcCompat="@drawable/baseline_call_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_nodal_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="sms"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img_nodal_email"
+            app:layout_constraintEnd_toStartOf="@+id/img_nodal_email"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/nodal_name"
+            app:layout_constraintTop_toTopOf="@+id/img_nodal_email"
+            app:srcCompat="@drawable/baseline_sms_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_nodal_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="email"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img_nodal_call"
+            app:layout_constraintEnd_toStartOf="@+id/img_nodal_call"
+            app:layout_constraintStart_toEndOf="@+id/img_nodal_sms"
+            app:layout_constraintTop_toTopOf="@+id/img_nodal_call"
+            app:srcCompat="@drawable/baseline_email_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_as1_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="sms"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/as1_name"
+            app:layout_constraintEnd_toStartOf="@+id/img_as1_email"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/as1_name"
+            app:layout_constraintTop_toTopOf="@+id/as1_name"
+            app:srcCompat="@drawable/baseline_sms_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_as1_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="email"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img_as1_sms"
+            app:layout_constraintEnd_toStartOf="@+id/img_as1_call"
+            app:layout_constraintStart_toEndOf="@+id/img_as1_sms"
+            app:layout_constraintTop_toTopOf="@+id/img_as1_call"
+            app:srcCompat="@drawable/baseline_email_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_as2_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="sms"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/as2_name"
+            app:layout_constraintEnd_toStartOf="@+id/img_as2_email"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/as2_name"
+            app:layout_constraintTop_toTopOf="@+id/as2_name"
+            app:srcCompat="@drawable/baseline_sms_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_as2_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="email"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img_as2_call"
+            app:layout_constraintEnd_toStartOf="@+id/img_as2_call"
+            app:layout_constraintStart_toEndOf="@+id/img_as2_sms"
+            app:layout_constraintTop_toTopOf="@+id/img_as2_call"
+            app:srcCompat="@drawable/baseline_email_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_as3_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="sms"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img_as3_email"
+            app:layout_constraintEnd_toStartOf="@+id/img_as3_email"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/as3_name"
+            app:layout_constraintTop_toTopOf="@+id/img_as3_email"
+            app:srcCompat="@drawable/baseline_sms_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/img_as3_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="email"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img_as3_call"
+            app:layout_constraintEnd_toStartOf="@+id/img_as3_call"
+            app:layout_constraintStart_toEndOf="@+id/img_as3_sms"
+            app:layout_constraintTop_toTopOf="@+id/img_as3_call"
+            app:srcCompat="@drawable/baseline_email_24"
+            tools:ignore="TouchTargetSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
