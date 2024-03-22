@@ -57,7 +57,7 @@
             android:padding="5dp"
             android:text="Seonimalwa"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/left_label_tv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -68,9 +68,9 @@
             android:padding="5dp"
             android:text="First"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/textView15"
+            app:layout_constraintBottom_toBottomOf="@+id/right_lable_tv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView15" />
+            app:layout_constraintTop_toTopOf="@+id/right_lable_tv" />
 
         <View
             android:id="@+id/view"
@@ -169,7 +169,7 @@
             app:srcCompat="@drawable/baseline_call_24" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/left_label_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -180,7 +180,7 @@
             app:layout_constraintTop_toTopOf="@+id/assembly_tv" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/right_lable_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

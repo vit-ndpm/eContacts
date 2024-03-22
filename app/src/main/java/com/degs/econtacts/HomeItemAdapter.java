@@ -63,6 +63,13 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         break;
+                        case 4:
+                        intent = new Intent(context, Sector.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allSectors";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
                     case 5:
                         context.startActivity(new Intent(context, Role.class));
                         break;
@@ -102,9 +109,23 @@ public class HomeItemAdapter extends RecyclerView.Adapter<HomeItemAdapter.ViewHo
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         break;
-                    case 16:
+                    case 15:
+                        intent = new Intent(context, Police_Station.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allPoliceStations";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
+                        case 16:
                         intent = new Intent(context, Imp_Link.class);
                         url = "https://ndpm.vinayakinfotech.co.in/api/allImpLinks";
+                        intent.putExtra("url", url);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
+                        case 17:
+                        intent = new Intent(context, Imp_Link.class);
+                        url = "https://ndpm.vinayakinfotech.co.in/api/allNotifications";
                         intent.putExtra("url", url);
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);

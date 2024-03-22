@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="4dp"
+    android:textAlignment="center"
     app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,10 +52,12 @@
             android:id="@+id/assembly_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/rectangle_background"
             android:padding="5dp"
             android:text="Seonimalwa"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/left_label_tv"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,23 +67,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:padding="5dp"
-            android:text="First"
+            android:background="@drawable/number_background"
+            android:padding="10dp"
+            android:text="35"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:flow_horizontalAlign="center"
             app:layout_constraintBottom_toBottomOf="@+id/right_lable_tv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/right_lable_tv" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/nodal_border"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/officer_name_hi_tv" />
+            app:layout_constraintTop_toTopOf="@+id/right_lable_tv"
+            app:layout_constraintVertical_bias="0.322" />
 
         <TextView
             android:id="@+id/officer_name_tv"
@@ -99,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/officer_name_hi_tv"
             app:layout_wrapBehaviorInParent="included" />
 
         <TextView
@@ -183,11 +179,12 @@
             android:id="@+id/right_lable_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
             android:text="Shift:"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/shift_tv"
+            app:layout_constraintStart_toEndOf="@+id/assembly_tv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -195,10 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/call_img_officer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
             app:layout_constraintStart_toEndOf="@+id/call_img_officer"
             app:layout_constraintTop_toTopOf="@+id/call_img_officer"
             app:srcCompat="@drawable/baseline_sms_24" />
@@ -215,6 +209,50 @@
             app:layout_constraintStart_toEndOf="@+id/call_img_police"
             app:layout_constraintTop_toTopOf="@+id/call_img_police"
             app:srcCompat="@drawable/baseline_sms_24" />
+
+        <ImageView
+            android:id="@+id/whatsapp_img_officer"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sms_img_officer"
+            app:layout_constraintStart_toEndOf="@+id/sms_img_officer"
+            app:layout_constraintTop_toTopOf="@+id/sms_img_officer"
+            app:srcCompat="@drawable/whatsapp" />
+
+        <ImageView
+            android:id="@+id/whatsapp_img_police"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sms_img_police"
+            app:layout_constraintStart_toEndOf="@+id/sms_img_police"
+            app:layout_constraintTop_toTopOf="@+id/sms_img_police"
+            app:srcCompat="@drawable/whatsapp" />
+
+        <ImageView
+            android:id="@+id/share_img_officer"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/whatsapp_img_officer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/whatsapp_img_officer"
+            app:layout_constraintTop_toTopOf="@+id/whatsapp_img_officer"
+            app:srcCompat="@drawable/share" />
+
+        <ImageView
+            android:id="@+id/share_img_police"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/whatsapp_img_police"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/whatsapp_img_police"
+            app:layout_constraintTop_toTopOf="@+id/whatsapp_img_police"
+            app:srcCompat="@drawable/share" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

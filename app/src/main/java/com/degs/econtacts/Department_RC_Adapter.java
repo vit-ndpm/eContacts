@@ -49,7 +49,6 @@ public class Department_RC_Adapter extends RecyclerView.Adapter <Department_RC_A
             }
         });
 
-
     }
 
     @Override

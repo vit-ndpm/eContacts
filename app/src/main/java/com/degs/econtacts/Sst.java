@@ -99,7 +99,6 @@ public class Sst extends AppCompatActivity {
                         String assembly_name_eng = sst.getJSONObject("assembly").getString("name_eng");
                         String assembly_name_hi = sst.getJSONObject("assembly").getString("name_hi");
                         JSONArray officers = sst.getJSONArray("officers");
-
                         ArrayList<Officer_Model> officersList = new ArrayList<>();
                         if (officers.length() > 1) {
                             for (int j = 0; j < officers.length(); j++) {
