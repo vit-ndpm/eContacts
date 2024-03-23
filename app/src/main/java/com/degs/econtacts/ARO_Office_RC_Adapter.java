@@ -103,11 +103,11 @@ public class ARO_Office_RC_Adapter extends RecyclerView.Adapter<ARO_Office_RC_Ad
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name_eng_tv = itemView.findViewById(R.id.officer_name_eng_tv);
-            name_hi_tv = itemView.findViewById(R.id.officer_name_hi_tv);
+            name_eng_tv = itemView.findViewById(R.id.police_station_name_eng_tv);
+            name_hi_tv = itemView.findViewById(R.id.police_station_name_hitv);
             mobile_tv = itemView.findViewById(R.id.mobile_tv);
             email_tv = itemView.findViewById(R.id.email_tv);
-            department = itemView.findViewById(R.id.department_tv);
+            department = itemView.findViewById(R.id.ti_name_tv);
             post = itemView.findViewById(R.id.post_tv);
             assembly = itemView.findViewById(R.id.assembly_tv);
             role = itemView.findViewById(R.id.role_tv);

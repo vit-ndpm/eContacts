@@ -3,7 +3,6 @@ package com.degs.econtacts;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,8 +148,8 @@ public class Fst_RC_Adapter extends RecyclerView.Adapter<Fst_RC_Adapter.ViewHold
         ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer,share_img_officer,share_img_police,whatsapp_img_officer,whatsapp_img_police;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            fst_name_eng_tv=itemView.findViewById(R.id.officer_name_eng_tv);
-            fst_name_hi_tv=itemView.findViewById(R.id.officer_name_hi_tv);
+            fst_name_eng_tv=itemView.findViewById(R.id.police_station_name_eng_tv);
+            fst_name_hi_tv=itemView.findViewById(R.id.police_station_name_hitv);
             assembly_tv=itemView.findViewById(R.id.assembly_tv);
             shift_tv=itemView.findViewById(R.id.shift_tv);
             officer_name_tv=itemView.findViewById(R.id.officer_name_tv);

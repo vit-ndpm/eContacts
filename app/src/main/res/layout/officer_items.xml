@@ -17,7 +17,7 @@
 
 
         <TextView
-            android:id="@+id/officer_name_eng_tv"
+            android:id="@+id/police_station_name_eng_tv"
             android:layout_width="381dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/officer_name_hi_tv"
+            android:id="@+id/police_station_name_hitv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -42,9 +42,9 @@
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@+id/officer_name_eng_tv"
-            app:layout_constraintStart_toStartOf="@+id/officer_name_eng_tv"
-            app:layout_constraintTop_toBottomOf="@+id/officer_name_eng_tv" />
+            app:layout_constraintEnd_toEndOf="@+id/police_station_name_eng_tv"
+            app:layout_constraintStart_toStartOf="@+id/police_station_name_eng_tv"
+            app:layout_constraintTop_toBottomOf="@+id/police_station_name_eng_tv" />
 
         <TextView
             android:id="@+id/mobile_tv"
@@ -59,7 +59,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/call_img"
             app:layout_constraintEnd_toStartOf="@+id/call_img"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/officer_name_hi_tv"
+            app:layout_constraintTop_toBottomOf="@+id/police_station_name_hitv"
             app:layout_constraintVertical_bias="0.615" />
 
         <ImageView
@@ -80,7 +80,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/officer_name_hi_tv"
+            app:layout_constraintTop_toBottomOf="@+id/police_station_name_hitv"
             app:srcCompat="@drawable/baseline_sms_24" />
 
         <TextView

@@ -148,8 +148,8 @@ public class Sst_RC_Adapter extends RecyclerView.Adapter<Sst_RC_Adapter.ViewHold
         ImageView call_img_officer,call_img_police,sms_img_police,sms_img_officer,share_img_officer,share_img_police,whatsapp_img_officer,whatsapp_img_police;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            sst_name_eng_tv=itemView.findViewById(R.id.officer_name_eng_tv);
-            sst_name_hi_tv=itemView.findViewById(R.id.officer_name_hi_tv);
+            sst_name_eng_tv=itemView.findViewById(R.id.police_station_name_eng_tv);
+            sst_name_hi_tv=itemView.findViewById(R.id.police_station_name_hitv);
             assembly_tv=itemView.findViewById(R.id.assembly_tv);
             shift_tv=itemView.findViewById(R.id.shift_tv);
             officer_name_tv=itemView.findViewById(R.id.officer_name_tv);

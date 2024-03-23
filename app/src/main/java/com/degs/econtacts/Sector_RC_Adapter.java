@@ -68,8 +68,8 @@ public class Sector_RC_Adapter extends RecyclerView.Adapter<Sector_RC_Adapter.Vi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            sector_name_eng_tv = itemView.findViewById(R.id.officer_name_eng_tv);
-            sector_name_hi_tv = itemView.findViewById(R.id.officer_name_eng_tv);
+            sector_name_eng_tv = itemView.findViewById(R.id.police_station_name_eng_tv);
+            sector_name_hi_tv = itemView.findViewById(R.id.police_station_name_eng_tv);
             left_label_tv = itemView.findViewById(R.id.left_label_tv);
             right_label_tv = itemView.findViewById(R.id.right_lable_tv);
             assembly_tv = itemView.findViewById(R.id.assembly_tv);

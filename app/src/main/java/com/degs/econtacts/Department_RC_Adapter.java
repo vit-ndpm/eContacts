@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,8 +61,8 @@ public class Department_RC_Adapter extends RecyclerView.Adapter <Department_RC_A
         TextView department_name_hi;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            department_name_eng=itemView.findViewById(R.id.officer_name_eng_tv);
-            department_name_hi=itemView.findViewById(R.id.officer_name_hi_tv);
+            department_name_eng=itemView.findViewById(R.id.police_station_name_eng_tv);
+            department_name_hi=itemView.findViewById(R.id.police_station_name_hitv);
         }
     }
 
