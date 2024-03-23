@@ -22,6 +22,7 @@
         android:background="@drawable/card_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <ScrollView
@@ -29,7 +30,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
         android:alwaysDrawnWithCache="true"
@@ -52,6 +52,8 @@
             android:id="@+id/main_item_recycler_View"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="?attr/actionBarSize"
+
 
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </ScrollView>
