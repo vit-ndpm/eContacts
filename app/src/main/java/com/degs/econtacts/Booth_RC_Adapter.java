@@ -1,5 +1,6 @@
 package com.degs.econtacts;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -132,6 +134,59 @@ public class Booth_RC_Adapter extends RecyclerView.Adapter<Booth_RC_Adapter.View
             }
         });
 
+        //Other Officers Code
+        holder.other_Officers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.ps_other_officers_list);
+                ImageView close = dialog.findViewById(R.id.closeBtn);
+                close.setImageResource(android.R.drawable.btn_dialog);
+                RecyclerView recyclerView = (RecyclerView) dialog.findViewById(R.id.otherOfficerRCView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                ArrayList<OtherOfficerModel> list = new ArrayList<>();
+
+                list.add(new OtherOfficerModel("Sector Officer",
+                        boothModelArrayList.get(holder.getAdapterPosition()).sectorMagistrateName,
+                        boothModelArrayList.get(holder.getAdapterPosition()).sectorMobileNumber));
+                list.add(new OtherOfficerModel("Person Detail",
+                        boothModelArrayList.get(holder.getAdapterPosition()).personName,
+                        boothModelArrayList.get(holder.getAdapterPosition()).personMobileNumber));
+                list.add(new OtherOfficerModel("Thana Incharge",
+                        boothModelArrayList.get(holder.getAdapterPosition()).thanaMobileNumber,
+                        boothModelArrayList.get(holder.getAdapterPosition()).thanaSTDPhon));
+                list.add(new OtherOfficerModel("Local Contact-1",
+                        boothModelArrayList.get(holder.getAdapterPosition()).localContactPersonNameFirst,
+                        boothModelArrayList.get(holder.getAdapterPosition()).localContactPersonNameFirstMobile));
+                list.add(new OtherOfficerModel("Local Contact-2)",
+                        boothModelArrayList.get(holder.getAdapterPosition()).localContactPersonNameSecond,
+                        boothModelArrayList.get(holder.getAdapterPosition()).localContactPersonNameSecondMobile));
+//                list.add(new OtherOfficerModel("Anganwadi Worker",
+//                        boothModelArrayList.get(holder.getAdapterPosition()).aww_name,
+//                        boothModelArrayList.get(holder.getAdapterPosition()).aww_mobile));
+//                list.add(new OtherOfficerModel("Anganwadi Assistant)",
+//                        boothModelArrayList.get(holder.getAdapterPosition()).awa_name,
+//                        boothModelArrayList.get(holder.getAdapterPosition()).awa_mobile));
+//                list.add(new OtherOfficerModel("Webcating Incharge(Vendor)",
+//                        boothModelArrayList.get(holder.getAdapterPosition()).cctv_incharge_name,
+//                        boothModelArrayList.get(holder.getAdapterPosition()).cctv_incharge_mobile));
+                OtehrOfficerRCViewAdapter adapter = new OtehrOfficerRCViewAdapter(context, list);
+                recyclerView.setAdapter(adapter);
+                dialog.setCancelable(true);
+                dialog.show();
+
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+            }
+        });
+
     }
 
     @Override
@@ -173,7 +228,7 @@ public class Booth_RC_Adapter extends RecyclerView.Adapter<Booth_RC_Adapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView assembly_id, sector_no, booth_no, booth_name_eng, booth_name_hi, blo_name, blo_mobile;
+        TextView assembly_id, sector_no, booth_no, booth_name_eng, booth_name_hi, blo_name, blo_mobile,other_Officers;
         ImageView webcasting, cctv, videography, critical, senstive, vulnerable, call_network, data_netowrk, ps_location, img_call_blo, img_sms_blo;
 
         public ViewHolder(@NonNull View itemView) {
@@ -184,6 +239,7 @@ public class Booth_RC_Adapter extends RecyclerView.Adapter<Booth_RC_Adapter.View
             booth_name_hi = itemView.findViewById(R.id.booth_name_hi_tv);
             blo_name = itemView.findViewById(R.id.blo_name_tv);
             blo_mobile = itemView.findViewById(R.id.blo_mobile);
+            other_Officers = itemView.findViewById(R.id.otehr_officers);
             sector_no = itemView.findViewById(R.id.sector_no_tv);
             webcasting = itemView.findViewById(R.id.img_webcasting);
             cctv = itemView.findViewById(R.id.img_cctv);

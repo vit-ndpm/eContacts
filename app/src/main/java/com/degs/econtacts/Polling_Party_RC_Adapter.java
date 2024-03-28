@@ -162,4 +162,8 @@ public class Polling_Party_RC_Adapter extends RecyclerView.Adapter<Polling_Party
             p3_mobile_tv=itemView.findViewById(R.id.p3_mobile);
         }
     }
+    public void setFilteredList(ArrayList<Polling_Party_Model> filteredList) {
+        this.polling_party_modelArrayList = filteredList;
+        notifyDataSetChanged();
+    }
 }

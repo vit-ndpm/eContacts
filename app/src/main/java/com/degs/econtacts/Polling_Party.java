@@ -49,11 +49,13 @@ public class Polling_Party extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                filterList(newText);
                 return false;
             }
         });
@@ -132,5 +134,31 @@ public class Polling_Party extends AppCompatActivity {
 
                     }
                 });
+    }
+    public void filterList(String text) {
+        ArrayList<Polling_Party_Model> filteredList = new ArrayList<>();
+        for (Polling_Party_Model pollingPartyModel : polling_party_modelArrayList) {
+            if (String.valueOf(pollingPartyModel.assembly_id).toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.booth_name.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.po_name.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.po_mobile.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.p1_mobile.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.p1_name.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.p2_mobile.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.p2_name.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.p3_mobile.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.p3_name.toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.booth_name.toLowerCase().contains(text.toLowerCase()) ||
+                    String.valueOf(pollingPartyModel.booth_id).toLowerCase().contains(text.toLowerCase()) ||
+                    String.valueOf(pollingPartyModel.booth_name).toLowerCase().contains(text.toLowerCase()) ||
+                    pollingPartyModel.assembly_name.toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(pollingPartyModel);
+            }
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this, "No Data found", Toast.LENGTH_SHORT).show();
+            } else {
+                adapter.setFilteredList(filteredList);
+            }
+        }
     }
 }

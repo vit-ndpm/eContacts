@@ -17,14 +17,6 @@ public class Booth_Model {
     String sectorMagistrateName;
     String sectorOfficerDesignation;
 
-    public String getSectorOfficerDesignation() {
-        return sectorOfficerDesignation;
-    }
-
-    public void setSectorOfficerDesignation(String sectorOfficerDesignation) {
-        this.sectorOfficerDesignation = sectorOfficerDesignation;
-    }
-
     String sectorOfficerName;
     String sectorOfficerCaderName;
     String sectorMobileNumber;
@@ -87,7 +79,13 @@ public class Booth_Model {
         this.data_network = data_network;
         this.status = status;
     }
+    public String getSectorOfficerDesignation() {
+        return sectorOfficerDesignation;
+    }
 
+    public void setSectorOfficerDesignation(String sectorOfficerDesignation) {
+        this.sectorOfficerDesignation = sectorOfficerDesignation;
+    }
     public int getId() {
         return id;
     }

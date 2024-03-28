@@ -58,6 +58,7 @@ public class ARO_Office extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                filterList(newText);
                 return false;
             }
         });

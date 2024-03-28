@@ -117,4 +117,8 @@ public class Police_Station_RC_Adapter extends RecyclerView.Adapter<Police_Stati
 
         }
     }
+    public void setFilteredList(ArrayList<Police_Station_Model> filteredList) {
+        this.policeStationModelArrayList = filteredList;
+        notifyDataSetChanged();
+    }
 }

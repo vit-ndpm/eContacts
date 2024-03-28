@@ -17,7 +17,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/name_hi_link"
         app:layout_constraintEnd_toStartOf="@+id/name_hi_link"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/name_eng_link"
+        app:layout_constraintTop_toTopOf="@+id/notice_title"
         app:srcCompat="@drawable/link" />
 
     <TextView
@@ -32,10 +32,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/img_cat_link"
-        app:layout_constraintTop_toBottomOf="@+id/name_eng_link" />
+        app:layout_constraintTop_toBottomOf="@+id/notice_title" />
 
     <TextView
-        android:id="@+id/name_eng_link"
+        android:id="@+id/notice_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/title_link"
+        android:id="@+id/notic_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -69,7 +69,7 @@
         android:padding="3dp"
         android:text="TextView"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/title_link"
-        app:layout_constraintStart_toStartOf="@+id/title_link"
-        app:layout_constraintTop_toBottomOf="@+id/title_link" />
+        app:layout_constraintEnd_toEndOf="@+id/notic_description"
+        app:layout_constraintStart_toStartOf="@+id/notic_description"
+        app:layout_constraintTop_toBottomOf="@+id/notic_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

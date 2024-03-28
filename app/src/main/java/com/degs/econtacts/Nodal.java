@@ -136,7 +136,9 @@ public class Nodal extends AppCompatActivity {
     public void filterList(String text) {
         ArrayList<Nodal_Model> filteredList = new ArrayList<>();
         for (Nodal_Model nodalmodel : nodalmodelArrayList) {
-            if (nodalmodel.name_eng.toLowerCase().contains(text.toLowerCase()) || nodalmodel.name_hi.toLowerCase().contains(text.toLowerCase()) || nodalmodel.jobs.toLowerCase().contains(text.toLowerCase())) {
+            if (nodalmodel.name_eng.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.name_hi.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.jobs.toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(nodalmodel);
             }
             if (filteredList.isEmpty()) {

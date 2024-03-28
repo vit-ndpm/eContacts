@@ -3,11 +3,11 @@ package com.degs.econtacts;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -48,6 +48,18 @@ public class Police_Station extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerview_police);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         searchView=findViewById(R.id.searchview_toolbar);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
 
         url="https://ndpm.vinayakinfotech.co.in/api/allPoliceStations";
         progressDialog.setTitle("Police Station Loader");
@@ -99,5 +111,23 @@ public class Police_Station extends AppCompatActivity {
 
                     }
                 });
+    }
+    public void filterList(String text) {
+        ArrayList<Police_Station_Model> filteredList = new ArrayList<>();
+        for (Police_Station_Model nodalmodel : policeStationModelArrayList) {
+            if (nodalmodel.name_eng.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.address.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.name_hi.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.landline.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.address.toLowerCase().contains(text.toLowerCase()) ||
+                    nodalmodel.officer_name.toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(nodalmodel);
+            }
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this, "No Data found", Toast.LENGTH_SHORT).show();
+            } else {
+                adapter.setFilteredList(filteredList);
+            }
+        }
     }
 }

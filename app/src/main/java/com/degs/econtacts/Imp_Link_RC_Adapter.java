@@ -69,9 +69,9 @@ public class Imp_Link_RC_Adapter extends RecyclerView.Adapter<Imp_Link_RC_Adapte
         ImageView cat_img;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cat_name_eng=itemView.findViewById(R.id.name_eng_link);
+            cat_name_eng=itemView.findViewById(R.id.notice_title);
             cat_name_hi=itemView.findViewById(R.id.name_hi_link);
-            title=itemView.findViewById(R.id.title_link);
+            title=itemView.findViewById(R.id.notic_description);
             description=itemView.findViewById(R.id.decription_link);
             cat_img=itemView.findViewById(R.id.img_cat_link);
 

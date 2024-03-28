@@ -61,6 +61,7 @@ public class Fst extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                filterList(newText);
                 return false;
             }
         });
